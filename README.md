@@ -1,70 +1,151 @@
-# Getting Started with Create React App
+# Admin Panel - Booking System Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This project is a full-stack application developed as part of a Full Stack Developer Assessment Test. It's a comprehensive booking system with user management capabilities, featuring an admin panel for CRUD operations on users and booking items.
 
-## Available Scripts
+## Live Demo
+- **Frontend:** [https://mindsynccon-frontend.vercel.app](https://mindsynccon-frontend.vercel.app)
+- **Backend API:** [https://mindsynccon-backend.onrender.com](https://mindsynccon-backend.onrender.com)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### User Authentication
+- User registration with username, email, and password (passwords are hashed)
+- Login functionality with JWT token generation
+- Logout functionality that clears JWT from localStorage
+- Display of user information and avatar on dashboard
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Browse Items for Booking
+- Display of available booking items (rooms, vehicles, services) with:
+  - Title
+  - Description
+  - Price
+  - Availability status
+  - Image
+- Filtering by attributes (price, availability)
+- Sorting functionality (by price, name, etc.)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Booking Functionality
+- Date/time selection for bookings
+- Total price calculation based on duration
+- Booking confirmation with summary page
 
-### `npm test`
+### User Dashboard
+- Display of current and past bookings
+- Booking cancellation option
+- Booking modification (date/time, items)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Admin Panel
+- Manage Booking Items:
+  - Create new items
+  - View list of items in a table
+  - Update existing item details
+  - Delete items
+- Manage Users:
+  - View all system users
+  - Create new users
+  - Update user details
+  - Delete users
 
-### `npm run build`
+## Technologies Used
+- **Frontend**:
+  - React.js
+  - Context API/Redux for state management
+  - React Router for navigation
+  - Tailwind/Material-UI for styling
+  - Axios for API calls
+- **Backend**:
+  - Express.js
+  - MongoDB for database
+  - JWT for authentication
+  - bcrypt for password hashing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Database Structure
+- **Collections**:
+  - Users
+  - Items
+  - Bookings
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Prerequisites
+Before you begin, ensure you have the following installed:
+- Node.js (v14.x or higher)
+- npm (v6.x or higher) or yarn (v1.22.x or higher)
+- MongoDB (or access to MongoDB Atlas)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Local Setup
 
-### `npm run eject`
+### 1. Clone the repository
+```bash
+git clone https://github.com/Hisam-94/mindsynccon-frontend.git
+cd mindsynccon-frontend
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2. Install dependencies
+```bash
+npm install
+# or with yarn
+yarn install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. Set up environment variables
+Create a `.env` file in the root directory with the following variables:
+```
+REACT_APP_API_URL=http://localhost:5000
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 4. Start the development server
+```bash
+npm start
+# or with yarn
+yarn start
+```
+The application will be available at `http://localhost:3000`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Backend Setup
+The backend repository can be found at [https://github.com/Hisam-94/mindsynccon-backend](https://github.com/Hisam-94/mindsynccon-backend).
 
-## Learn More
+Follow the README instructions in the backend repository to set up the API server locally. The backend should include:
+- Express.js server
+- MongoDB database connection
+- User authentication with JWT
+- Role-based access control
+- API endpoints for users, items, and bookings
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Database Setup
+1. Set up MongoDB (locally or using MongoDB Atlas)
+2. Collections needed:
+   - **Users**: Contains user information (username, email, hashed password, role, etc.)
+   - **Items**: Contains booking item details (title, description, price, availability, etc.)
+   - **Bookings**: Contains booking records (userId, itemId, start/end times, total price, etc.)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deployment
+The frontend is deployed on Vercel and the backend on Render.
 
-### Code Splitting
+### Frontend Deployment Steps
+1. Create a Vercel account if you don't have one
+2. Connect your GitHub repository to Vercel
+3. Configure the build settings:
+   - Build command: `npm run build`
+   - Publish directory: `build`
+4. Set up environment variables in the Vercel dashboard
+5. Deploy!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Backend Deployment Steps
+1. Create a Render account
+2. Connect your GitHub backend repository
+3. Configure as a Web Service
+4. Set up environment variables (MongoDB connection string, JWT secret, etc.)
+5. Deploy and note the URL for connecting the frontend
 
-### Analyzing the Bundle Size
+## Security Features
+- Password hashing using bcrypt
+- JWT for secure authentication
+- Protected routes using middleware
+- Role-based access control for admin functionality
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+- Project Maintainer: [Hisam-94](https://github.com/Hisam-94)
+- Project Link: [https://github.com/Hisam-94/mindsynccon-frontend](https://github.com/Hisam-94/mindsynccon-frontend)
