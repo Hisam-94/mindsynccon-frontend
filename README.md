@@ -22,8 +22,6 @@ This project is a full-stack application developed as part of a Full Stack Devel
   - Price
   - Availability status
   - Image
-- Filtering by attributes (price, availability)
-- Sorting functionality (by price, name, etc.)
 
 ### Booking Functionality
 - Date/time selection for bookings
@@ -50,9 +48,9 @@ This project is a full-stack application developed as part of a Full Stack Devel
 ## Technologies Used
 - **Frontend**:
   - React.js
-  - Context API/Redux for state management
+  - Redux for state management
   - React Router for navigation
-  - Tailwind/Material-UI for styling
+  - Tailwind for styling
   - Axios for API calls
 - **Backend**:
   - Express.js
